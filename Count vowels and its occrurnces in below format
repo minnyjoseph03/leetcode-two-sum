@@ -1,0 +1,51 @@
+// Input : "Hello World"
+// Count vowels and its occrurnces in below format
+// Output : e:1 o:2
+
+enum Vowels: String {
+  case a = "a"
+  case e = "e"
+  case i = "i"
+  case o = "o"
+  case u = "u"
+}
+func checkCount(_ input: String) {
+  let inputArray = Array(input)
+  let vowels:[Vowels] = [Vowels.a, Vowels.e, Vowels.i, Vowels.o, Vowels.u] 
+  var output: [String: Int] = [:]
+  var aCount: Int = 0
+  var eCount: Int = 0
+  var iCount: Int = 0
+  var oCount: Int = 0
+  var uCount: Int = 0
+  print(inputArray)
+  for i in 0..<inputArray.count {
+    for  j in 0..<vowels.count {
+      if inputArray[i].uppercased() == vowels[j].rawValue.uppercased() {
+        switch vowels[j] {
+          case .a: 
+            aCount += 1
+            output["a"] = aCount
+          case .e: 
+            eCount += 1
+            output["e"] = eCount
+          case .i: 
+            iCount += 1
+            output["i"] = iCount
+          case .o: 
+             oCount += 1
+            output["o"] = oCount
+          case .u:
+             uCount += 1
+            output["u"] = uCount
+        }
+      } 
+    }
+  } 
+
+  for (key, value) in output {
+    print("\(key) : \(value)")
+  }
+}
+
+checkCount("Hello World")
