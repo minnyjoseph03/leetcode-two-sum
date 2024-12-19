@@ -49,3 +49,19 @@ func checkCount(_ input: String) {
 }
 
 checkCount("Hello World")
+
+
+//Another
+
+let input = "Hello World"
+var vowelCounts: [Character: Int] = [:]
+let vowels: Set<Character> = ["a", "e", "i", "o", "u"]
+
+for i in input.lowercased() {
+    if  vowels.contains(i) {
+      vowelCounts[i, default: 0] += 1
+    }
+}
+for (key, value) in vowelCounts {
+  print("\(key) : \(value)")
+}
